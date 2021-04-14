@@ -7,27 +7,35 @@ Double Latin Sqaures
 
 2x2 cannot be done.
 6x6 cannot be done.
-10x10 cannot be done.
 
 *** Sample output:
 
 Group 3x3:
-A VS 1              B VS 2              C VS 3
-C VS 2              A VS 3              B VS 1
-B VS 3              C VS 1              A VS 2
+A-1  B-2  C-3
+C-2  A-3  B-1
+B-3  C-1  A-2
 
 Teams 4x4:
-Mike VS Murray      Frankie VS Hank     Bella VS Saminal    Teenie VS Jessica
-Teenie VS Hank      Mike VS Saminal     Frankie VS Jessica  Bella VS Murray
-Bella VS Saminal    Teenie VS Jessica   Mike VS Murray      Frankie VS Hank
-Frankie VS Jessica  Bella VS Murray     Teenie VS Hank      Mike VS Saminal
+Mike vs Murray      Frankie vs Hank     Bella vs Saminal    Teenie vs Jessica
+Teenie vs Hank      Mike vs Saminal     Frankie vs Jessica  Bella vs Murray
+Bella vs Saminal    Teenie vs Jessica   Mike vs Murray      Frankie vs Hank
+Frankie vs Jessica  Bella vs Murray     Teenie vs Hank      Mike vs Saminal
 
 Group 5x5:
-A VS 1              B VS 2              C VS 3              D VS 4              E VS 5
-E VS 2              A VS 3              B VS 4              C VS 5              D VS 1
-D VS 3              E VS 4              A VS 5              B VS 1              C VS 2
-C VS 4              D VS 5              E VS 1              A VS 2              B VS 3
-B VS 5              C VS 1              D VS 2              E VS 3              A VS 4
+A-1  B-2  C-3  D-4  E-5
+E-2  A-3  B-4  C-5  D-1
+D-3  E-4  A-5  B-1  C-2
+C-4  D-5  E-1  A-2  B-3
+B-5  C-1  D-2  E-3  A-4
+
+Group 6x6:
+A-1  B-2  C-3  D-4  E-5  F-6
+F-2  A-3  B-4  C-5  D-6  E-1
+E-3  F-4  A-5  B-6  C-1  D-2
+D-4  E-5  F-6  A-1  B-2  C-3
+C-5  D-6  E-1  F-2  A-3  B-4
+B-6  C-1  D-2  E-3  F-4  A-5
+ERROR: does not work - the same combinations appear multiple times.
 
 */
 public class EulerSquares
@@ -102,15 +110,37 @@ public class EulerSquares
 
    public static void displayAllCombinations (String[][] allCombinations)
    {
+      int strFormatSize = getMaxItemLength (allCombinations) + 2;
+
       for (int row = 0; row < allCombinations.length; row++)
       {
          for (int col = 0; col < allCombinations[row].length; col++)
          {
-            System.out.print (String.format ("%-5s", allCombinations [row][col]) );
+            System.out.print (String.format ("%-" + strFormatSize + "s",
+                                             allCombinations [row][col]) );
          }
          System.out.println ();
       }
    }
+
+   private static int getMaxItemLength (String[][] allCombinations)
+   {
+      int maxLength = 0;
+
+      for (int row = 0; row < allCombinations.length; row++)
+      {
+         for (int col = 0; col < allCombinations[row].length; col++)
+         {
+            if (allCombinations [row][col].length() > maxLength)
+            {
+               maxLength = allCombinations [row][col].length();
+            }
+         }
+      }
+
+      return maxLength;
+   }
+
 
    public static void main (String[] args)
    {
