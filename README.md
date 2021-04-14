@@ -1,13 +1,12 @@
-# Math - Euler Squares, Latin Squares, Graeco-Latin Squares
+# Math - Euler Squares, aka Double Latin Squares, aka Graeco-Latin Squares
 
-* Euler Squares - Numberphile
-<br>https://www.youtube.com/watch?v=qu04xLNrk94
+## Euler Squares - Numberphile
+* https://www.youtube.com/watch?v=qu04xLNrk94
 
-Graeco-Latin Squares
-<br>Double Latin Sqaures
+## NOTE:
+* 2x2 cannot be done.
+* 6x6 cannot be done.
 
-<br>2x2 cannot be done.
-<br>6x6 cannot be done.
 
 ## Sample output:
 
